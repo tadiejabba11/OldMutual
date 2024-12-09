@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Applicants</h1>
+
+  <table border="1" width="100%">
+
+      <tr>
+        <th>Full Name</th>
+        <th>Reg No</th>
+        <th>Gender</th>
+        <th>Programme</th>
+        <th>Level</th>
+        <th>Action</th>
+      </tr>
+
+    <tbody>
+      <% if (applicants.length > 0) { %>
+        <% for (let i = 0; i < applicants.length; i++) { %>
+          <tr>
+            <td><%= applicants[i].Fullname %></td>
+            <td><%= applicants[i].RegNo %></td>
+            <td><%= applicants[i].Gender %></td>
+            <td><%= applicants[i].Programme %></td>
+            <td><%= applicants[i].Level %></td>
+            <td><a href="/applicants_delete?RegNo=<%= applicants[i].RegNo %>">Delete</a></td>
+          </tr>
+        <% } %>
+      <% } else { %>
+        <tr>
+          <td colspan="5">No applications yet</td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</body>
+</html>
